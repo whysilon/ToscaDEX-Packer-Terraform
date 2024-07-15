@@ -1,4 +1,4 @@
-# Automation of Tricentis Tosca DEX Agents
+# Automated provisioning and deprovisioning of Tricentis Tosca DEX Agents
 
 This project serves as a proof-of-concept that it is possible to provision [DEX Agents](https://documentation.tricentis.com/tosca/2320/en/content/distributed_execution/dex_setup_intro.htm) that point to the relevant Tosca server on demand. The project uses [Packer](https://github.com/hashicorp/packer) to mint the base image of the DEX agents with the correct configurations then subsequently uses [Terraform](https://github.com/hashicorp/terraform) to provision the infrastructure required to run tests. This project also uses Azure as its cloud provider.
 
