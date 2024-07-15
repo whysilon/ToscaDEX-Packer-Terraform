@@ -26,7 +26,7 @@ variable "server_image_name" {
 }
 
 variable "password" {
-  default   = "P@ssw0rd!1234!"
+  default   = "x"
   sensitive = true
 }
 
@@ -60,7 +60,7 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = azurerm_virtual_network.vn.name
   address_prefixes     = ["10.0.2.0/24"]
 }
-
+# Add as many as you need
 module "DEXAgent" {
 	source = "./modules/DEXAgent"
 	
@@ -73,6 +73,7 @@ module "DEXAgent" {
 	img_id = data.azurerm_image.dex_img.id
 }
 
+/* This is commented out as Tosca Server should be set up manually and is usually persistent
 module "ToscaServer" {
 	source = "./modules/ToscaServer"
 	
@@ -82,4 +83,4 @@ module "ToscaServer" {
 	subnet_id = azurerm_subnet.subnet.id
 	password = var.password
 	img_id = data.azurerm_image.server_img.id	
-}
+} */
