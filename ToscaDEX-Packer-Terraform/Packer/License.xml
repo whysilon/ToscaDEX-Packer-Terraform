@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TOSCASettings xmlns="TOSCANamespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Category name="License">
+    <Setting name="License Mode" legacyPath="Common.LicenseMode">4</Setting>
+    <Setting name="Server Port" legacyPath="Common.ServerPort">7070</Setting>
+    <Setting name="License Server" legacyPath="Common.LicenseServer">NO-NET</Setting>
+    <Setting name="Timeout Interval" legacyPath="License.Timeout Interval">120</Setting>
+    <Setting name="Locking Code" legacyPath="Common.Locking Code"></Setting>
+    <Setting name="Return Licenses" legacyPath="Common.ReturnLicenses">True</Setting>
+    <Setting name="Commuter Source" legacyPath="Common.Commuter Source"></Setting>
+    <Setting name="UseDefaultWebProxy" legacyPath="License.UseDefaultWebProxy">False</Setting>
+    <Category name="Cloud">
+      <Setting name="Username" legacyPath="License.Cloud.Username"></Setting>
+      <Setting name="License Server" legacyPath="License.Cloud.LicenseServer"></Setting>
+      <Setting name="Timeout Interval" legacyPath="License.Cloud.TimeoutInterval">60</Setting>
+      <Setting name="ServiceUrl" legacyPath="License.Cloud.ServiceUrl">https://license.tricentis.com/CloudAccess/</Setting>
+      <Setting name="UseDefaultWebProxy" legacyPath="License.Cloud.UseDefaultWebProxy">False</Setting>
+      <Setting name="UserToken" legacyPath="License.Cloud.UserToken"></Setting>
+    </Category>
+  </Category>
+</TOSCASettings>
