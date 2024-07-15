@@ -26,7 +26,7 @@ variable "server_image_name" {
 }
 
 variable "password" {
-  default   = "P@ssw0rd!1234!"
+  default   = "x"
   sensitive = true
 }
 

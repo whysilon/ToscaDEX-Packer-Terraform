@@ -60,7 +60,7 @@ source "azure-arm" "tosca_server_win10" {
   winrm_timeout  = "5m"
   winrm_use_ssl  = true
   winrm_username = "packer"
-  winrm_password = "P@ssw0rd!@1234!"
+  winrm_password = "x"
 }
 
 build {
