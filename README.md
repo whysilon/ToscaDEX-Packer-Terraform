@@ -16,7 +16,7 @@ This project serves as a proof-of-concept that it is possible to provision [DEX 
      3) Create a [resource group](https://learn.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup?view=azps-12.1.0)
      4) Change any variables as needed in [azure_ToscaCommanderSetup.pkr.hcl](ToscaDEX-Packer-Terraform/Packer/azure_ToscaCommanderSetup.pkr.hcl) under the variables block.
 2.  Create the image
-     1) Change any variables needs in .azure_ToscaCommanderSetup.pkr.hcl (This includes ServerUri of the Tosca Server and License Server, Service Principal Creds, resource group names, etc...)
+     1) Change any variables needs in azure_ToscaCommanderSetup.pkr.hcl (This includes ServerUri of the Tosca Server and License Server, Service Principal Creds, resource group names, etc...)
      3) Run ```packer init .azure_ToscaCommanderSetup.pkr.hcl``` in the working directory of choice
      4) Run ```packer fmt .azure_ToscaCommanderSetup.pkr.hcl``` to format the file and check for errors (use ```packer inspect``` if needed)
      5) Run ```packer build .azure_ToscaCommanderSetup.pkr.hcl``` to build the image
@@ -25,7 +25,7 @@ This project serves as a proof-of-concept that it is possible to provision [DEX 
      2) Run ```terraform plan``` and check if the plan is as expected
      3) Run ```terraform apply``` if plan is as expected
 
-### Further steps needed
+## Further steps needed
 1. Changing RDP Config during the creation of DEX Agent image such that unattended execution is enabled by default without the need of manual intervention
 
 ## Acknowledgements
