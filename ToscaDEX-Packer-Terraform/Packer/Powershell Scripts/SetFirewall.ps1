@@ -6,6 +6,8 @@
 #>
  
 Write-Host "Setting Firewall for Tosca Components"
+New-NetFirewallRule -DisplayName "TricentisGatewayService" -Description "Tricentis Gateway Service" -Direction Inbound -LocalPort 80 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName "TricentisGatewayService" -Description "Tricentis Gateway Service" -Direction Inbound -LocalPort 80 -Protocol TCP -Action Allow
 New-NetFirewallRule -DisplayName "TricentisLicenseServer" -Description "Tricentis License Server" -Direction Inbound -LocalPort 7070 -Protocol TCP -Action Allow
 New-NetFirewallRule -DisplayName "TricentisLicenseServer" -Description "Tricentis License Server" -Direction Outbound -LocalPort 7070 -Protocol TCP -Action Allow
 New-NetFirewallRule -DisplayName "TricentisMSSQLConnection" -Description "Tricentis MS SQL Connection" -Direction Outbound -LocalPort 1433 -Protocol TCP -Action Allow

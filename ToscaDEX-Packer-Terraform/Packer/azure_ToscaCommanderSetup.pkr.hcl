@@ -23,11 +23,13 @@ variable "azure_cred" {
 
 variables {
   rg_name            = "ToscaWin10"
-  managed_image_name = "ToscaWin10_DEXv4_OnPrem"
-  script_directory   = "C:/Users/valta/Downloads/Hashicorp/Packer/PackerTosca/Powershell Scripts"
+  managed_image_name = "ToscaDEX_v4"
+  script_directory   = "./Powershell Scripts"
   # 1 to install browser extension in chrome/edge, 0 to not install
   chrome_install = 1
   edge_install   = 1
+  tosca_server_uri = "tosca-cicd.southeastasia.cloudapp.azure.com"
+  license_server_uri = "tosca-cicd.southeastasia.cloudapp.azure.com"
 }
 
 source "azure-arm" "tosca_win10" {
@@ -57,7 +59,7 @@ source "azure-arm" "tosca_win10" {
   winrm_timeout  = "5m"
   winrm_use_ssl  = true
   winrm_username = "packer"
-  winrm_password = "x"
+  winrm_password = "P@ssw0rd!1234!"
 }
 
 build {
@@ -97,7 +99,7 @@ build {
       "chrome_install=${var.chrome_install}",
       "edge_install=${var.edge_install}",
       "tosca_setup_path=https://files.tricentis.com/public.php?service=files&t=LqEP0CCAIfew2D9&download",
-      "tosca_setup_type=DEXAgent",
+      "tosca_setup_type=DexAgent",
     ]
     scripts = [
       "${var.script_directory}/Install-Tosca.ps1"
@@ -112,7 +114,9 @@ build {
   # Configure DEX Agent to point to the Tosca Server
   provisioner "powershell" {
     environment_vars = [
-      "serveruri=pilotstesting.southeastasia.cloudapp.azure.com"
+      "tosca_server_uri=${var.tosca_server_uri}",
+      "serverport=7070",
+	  "license_server_uri=${var.license_server_uri}"
     ]
     use_pwsh = true
     scripts = [
@@ -128,10 +132,7 @@ build {
   provisioner "windows-restart" {
     restart_timeout = "10m"
   }
-  provisioner "file" {
-    source      = "./License.xml"
-    destination = "C:\\ProgramData\\TRICENTIS\\Tosca Testsuite\\7.0.0\\License\\License.XML"
-  }
+
   # Runs sysprep to prepare image
   provisioner "powershell" {
     inline = [
